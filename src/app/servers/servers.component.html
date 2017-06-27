@@ -1,0 +1,17 @@
+
+<label>Server Name</label>
+<input type="text" [(ngModel)]="serverName" class="form-control"/>
+<p>{{serverName}}</p>
+<br>
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onServerCreate()">New server</button>
+<ng-template #noServer>
+    <p>No server was created</p>
+</ng-template>
+<p *ngIf="serverCreated; else noServer">A server was created with the name of {{serverName}}</p>
+<naw-server></naw-server>
+<naw-server></naw-server>
+
+<label for="uname">User name</label>
+<input type="text" [(ngModel)]="uname" class="form-control"/> <button class="btn btn-primary" [disabled]="uname.length <= 0" (click)="resetUName()">Reset</button>
+
+<p>Your name: {{uname}}</p>
