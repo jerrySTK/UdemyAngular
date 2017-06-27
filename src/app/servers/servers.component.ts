@@ -11,6 +11,11 @@ export class ServersComponent implements OnInit {
   serverName = '';
   serverCreated = false;
   uname= '';
+  servers = ['Server 1','Server 2','Server 3'];
+  displayDetails:boolean = false;
+  counter:Array<number> = [];
+  count:number = 0;
+
   constructor() {
     
   }
@@ -21,7 +26,7 @@ export class ServersComponent implements OnInit {
 
   onServerCreate() {
     this.serverCreated = true;
-    
+    this.servers.push(this.serverName);
   }
 
   onUpdateServerName(data: Event){
@@ -32,4 +37,20 @@ export class ServersComponent implements OnInit {
   resetUName(){
     this.uname = '';
   }
+
+    showDetails(){
+        this.displayDetails = !this.displayDetails;
+        let x = this.count++
+        this.counter.push(x);
+    }
+
+    getColor(itemIndex: number){
+      if (itemIndex >= 5){
+        return 'blue';
+      }
+      else
+      {
+        return '';
+      }
+    }
 }
